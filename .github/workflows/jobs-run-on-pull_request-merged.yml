@@ -16,3 +16,11 @@ jobs:
     steps:
       - run: |
           echo "normal run"
+
+  merge-run:
+    name: Job that normal run
+    runs-on: ubuntu-20.04
+    steps:
+      - if: ${{ github.event_name }} == 'push' && ${{ github.ref_name }} == 'main'
+        run: |
+          echo "run after merge"
