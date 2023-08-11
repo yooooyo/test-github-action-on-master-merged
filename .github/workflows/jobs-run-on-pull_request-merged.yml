@@ -1,0 +1,17 @@
+name: Test run jobs when merged
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+      
+jobs:
+  normal-run:
+    name: Job that normal run
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          echo "normal run"
