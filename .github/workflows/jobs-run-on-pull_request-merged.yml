@@ -16,9 +16,10 @@ jobs:
     steps:
       - run: |
           echo "normal run"
-          echo "event_name ${{ github.event_name }}"
-          echo "ref_name ${{ github.ref_name }}"
-          echo "ref ${{ github.ref }}"
+          echo "github.event_name ${{ github.event_name }}"
+          echo "github.event.action ${{ github.event.action }}"
+          echo "github.ref_name ${{ github.ref_name }}"
+          echo "github.ref ${{ github.ref }}"
 
   merge-run:
     name: Job that after merge
