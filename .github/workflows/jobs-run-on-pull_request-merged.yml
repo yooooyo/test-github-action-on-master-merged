@@ -16,13 +16,13 @@ jobs:
     steps:
       - run: |
           echo "normal run"
-          echo "event ${{ github.event_name }}"
-          echo "event ${{ github.ref_name }}"
-          echo "event ${{ github.ref }}"
+          echo "event_name ${{ github.event_name }}"
+          echo "ref_name ${{ github.ref_name }}"
+          echo "ref ${{ github.ref }}"
 
   merge-run:
     name: Job that after merge
-    if: ${{ github.ref_name }} == 'main' && ${{ github.event.action }} == 'push'
+    if: ${{ github.ref_name == 'main' }} 
     runs-on: ubuntu-20.04
     steps:
         - run: |
