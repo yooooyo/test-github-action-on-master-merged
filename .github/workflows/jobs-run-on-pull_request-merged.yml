@@ -21,8 +21,8 @@ jobs:
 
   merge-run:
     name: Job that after merge
+    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-20.04
     steps:
-      - if: ${{ github.event.pull_request.merged }}
-        run: |
-          echo "run after merge"
+        - run: |
+            echo "run after merge"
