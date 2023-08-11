@@ -5,9 +5,8 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
+    types:
+      - closed
       
 jobs:
   normal-run:
@@ -24,6 +23,6 @@ jobs:
     name: Job that after merge
     runs-on: ubuntu-20.04
     steps:
-      - if: ${{ github.event_name }} == 'push' && ${{ github.ref_name }} == 'main'
+      - if: ${{ github.event.pull_request.merged }}
         run: |
           echo "run after merge"
