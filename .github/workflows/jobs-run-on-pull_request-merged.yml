@@ -28,3 +28,6 @@ jobs:
     steps:
         - run: |
             echo "run after merge"
+
+  trigger-feature-five:
+    uses: ./.github/workflows/feature-five-workflow.yml
